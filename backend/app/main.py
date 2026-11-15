@@ -11,6 +11,9 @@ from app.config import settings
 from app.db import engine
 from app.telefony import telefony, sse_stream
 
+from .auth import router as auth_router
+app.include_router(auth_router)
+
 app = FastAPI(title="CRM-CC API", version="0.1.0")
 
 app.add_middleware(
