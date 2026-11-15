@@ -4,6 +4,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
+RUN npm config set registry https://registry.npmmirror.com
 
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
